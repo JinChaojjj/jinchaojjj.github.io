@@ -8,12 +8,33 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 24 Mar 2022 10:46:00 +0800</lastBuildDate><atom:link href="https://jinchaojjj.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Blog</title>
+      <title>博客</title>
       <link>https://jinchaojjj.github.io/post/blog/</link>
       <pubDate>Thu, 24 Mar 2022 10:46:00 +0800</pubDate>
       
       <guid>https://jinchaojjj.github.io/post/blog/</guid>
-      <description>hello 你好啊</description>
+      <description>mac上hugo博客搭建记录 一、搭建 本次博客搭建使用的是Hugo框架,整体的搭建过程还是十分的方便,但是在搭建过程中还是遇到了一些小问题
+a 环境  系统:mac OS Monterey 12.2.1
+hugo:v0.95.0
+ b 实际搭建 step 1
+ mac上使用brew install hugo进行安装
+ step 2
+ 使用hugo new site blogName创建自己的blog,使用命令之后会在当前文件夹下创建一个blogName命名的文件夹,这个就是创建好的blog
+ step 3 设置主题
+主题可以在官网上找自己喜欢的主题
+每一个主题的具体使用一般都是通过git进行clone到本地的,点击打开之后也有详细的说明
+主题会存放在themes文件夹中
+step 4
+hugo server -t hugo-agency-theme --buildDrafts在本地启动博客并访问
+c 写博客 hugo new post/bolgName.md创建博客文件,然后就可以在生成的文件中写博客啦
+d 在github上远程部署 step 1 创建仓库
+首先需要在github中创建一个仓库,仓库的名称是userName.github.io必须是这个名字,否则将无法访问,其中userName是你github帐号的名字
+step 2 本地生成
+hugo --theme=hugo-agency-theme --baseUrl=&amp;quot;https://lastknightcoder.github.io/&amp;quot; --buildDrafts
+这样就在本地生成了一个public文件夹,这个就是一句生成的静态页面啦
+step 3 上传远程
+这一步本质上就是将本地的博客(刚刚的public文件夹)上传到刚刚创建的仓库中,会git的小伙伴这一步就会很轻松啦
+ 首先进入public文件夹 git init git add .</description>
     </item>
     
   </channel>
