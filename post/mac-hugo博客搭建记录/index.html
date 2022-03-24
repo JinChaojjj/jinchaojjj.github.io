@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <title>博客 // My New Hugo Site</title>
+    <title>mac hugo博客搭建记录 // King的博客</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.95.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="John Doe" />
+    <meta name="author" content="King" />
     <meta name="description" content="" />
     <link rel="stylesheet" href="https://jinchaojjj.github.io/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css" />
 
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="博客"/>
+<meta name="twitter:title" content="mac hugo博客搭建记录"/>
 <meta name="twitter:description" content="mac hugo博客搭建记录 一、搭建 本次博客搭建使用的是Hugo框架,整体的搭建过程还是十分的方便,但是在搭建过程中还是遇到了一些小问题
 a 环境  系统:mac OS Monterey 12.2.1
 hugo:v0.95.0
@@ -36,7 +36,7 @@ step 3 上传远程
 这一步本质上就是将本地的博客(刚刚的public文件夹)上传到刚刚创建的仓库中,会git的小伙伴这一步就会很轻松啦
  首先进入public文件夹 git init git add ."/>
 
-    <meta property="og:title" content="博客" />
+    <meta property="og:title" content="mac hugo博客搭建记录" />
 <meta property="og:description" content="mac hugo博客搭建记录 一、搭建 本次博客搭建使用的是Hugo框架,整体的搭建过程还是十分的方便,但是在搭建过程中还是遇到了一些小问题
 a 环境  系统:mac OS Monterey 12.2.1
 hugo:v0.95.0
@@ -69,15 +69,15 @@ step 3 上传远程
   </head>
   <body>
     <header class="app-header">
-      <a href="https://jinchaojjj.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
-      <h1>My New Hugo Site</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <a href="https://jinchaojjj.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="King" /></a>
+      <h1>King的博客</h1>
+      <p>hello</p>
     </header>
     <main class="app-container">
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">博客</h1>
+      <h1 class ="post-title">mac hugo博客搭建记录</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
@@ -140,7 +140,37 @@ step 3 上传远程
 <p>这样就完成啦</p>
 <p><strong>step 4</strong> 远程访问</p>
 <p>使用<code>gitName.github.io</code>访问你的博客</p>
+<h3 id="e-参数设置">e 参数设置</h3>
+<p>在安装目录下的<code>config.toml</code>文件中可以对内容进行设置,主要设置的就是theme和url</p>
+<p>这样每次运行的时候就不用输入这么多啦</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo serve -D
+</span></span><span style="display:flex;"><span>hugo -D
+</span></span></code></pre></div><p>这些是hugo可以解析的信息,取自己需要的进行修改就可以了^_^</p>
+<pre tabindex="0"><code>---
+title: &#34;文章标题&#34;           # 文章标题
+author: &#34;作者&#34;              # 文章作者
+description : &#34;描述信息&#34;    # 文章描述信息
+date: 2015-09-28            # 文章编写日期
+lastmod: 2015-04-06         # 文章修改日期
 
+tags = [                    # 文章所属标签
+    &#34;文章标签1&#34;,
+    &#34;文章标签2&#34;
+]
+categories = [              # 文章所属标签
+    &#34;文章分类1&#34;,
+    &#34;文章分类2&#34;,
+]
+keywords = [                # 文章关键词
+    &#34;Hugo&#34;,
+    &#34;static&#34;,
+    &#34;generator&#34;,
+]
+
+next: /tutorials/github-pages-blog      # 下一篇博客地址
+prev: /tutorials/automated-deployments  # 上一篇博客地址
+---
+</code></pre>
     </div>
     <div class="post-footer">
       
