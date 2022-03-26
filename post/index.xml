@@ -6,7 +6,23 @@
     <description>Recent content in Posts on King的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Mar 2022 10:46:00 +0800</lastBuildDate><atom:link href="https://jinchaojjj.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法2-几种简单的排序算法2</title>
+      <link>https://jinchaojjj.github.io/post/%E7%AE%97%E6%B3%952-%E5%87%A0%E7%A7%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%952/</link>
+      <pubDate>Fri, 25 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/post/%E7%AE%97%E6%B3%952-%E5%87%A0%E7%A7%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%952/</guid>
+      <description>算法1-几种简单的排序算法 d 希尔排序 简单插入排序在排序过程中太过老实了,只是不断的做简单的插入.例如序列[5,4,3,2,1,0]中靠后的序列想要将0放到第一个位置上的时候需要经过大量的排序,复杂度十分的高,因此希尔在59年提出了希尔排序,这是第一种复杂度冲进o(n^2)的排序算法.
+下面简单讲解一下算法的主要思想:
+算法主要是通过跨越的方式使得数字尽可能快的接近自己的正确位置.那么数字如何更快的到达自己的位置呢?
+这里就需要介绍一个概念了:增量序列.增量序列指的是一个不断递减的序列.以希尔增量:{n/2,(n/2)/2,&amp;hellip;.}为例.第一个数字n/2指的是待排序数列中每隔n/2个位置的数作为一组进行插入排序.在排序完成后使用增量的第二个数进行排序,发现没有随着排序的进行,增量在减小、排序的组数在减少、每组中排序的数量在增加.
+在排序刚开始的时候跨度往往很大,就是由于这种大跨度的排序,使得数字可以更快的到达自己应该处于的位置.
+希尔排序中一个最难的问题就是如何选择增量序列,增量序列的选择是个数学上的难题.希尔增量并不是最好的增量序列,目前使用较多的增量序列是Hibbard,最坏的时间复杂度是o(n^3/2).
+下面贴出基于希尔增量实现的算法源码,(用户想要更加优秀的性能可以自己更换想要的增量序列)
+public class ShellSort{  public static void main(String[] args){  System.out.println(&amp;#34;hello&amp;#34;);  int[] nums = {  4,6,6,5,3,2,4,6,78,9,7,6,5,4,43,32,2  };  Shell(nums);  for(int i = 0; i &amp;lt; nums.length; i++){  System.out.println(nums[i]);  }  }  public static void Shell(int[] nums){  int length = nums.length/2;  while(length &amp;gt; 0){  // 依据length进行插入排序  for(int i = 1; i &amp;lt; nums.</description>
+    </item>
+    
     <item>
       <title>mac hugo博客搭建记录</title>
       <link>https://jinchaojjj.github.io/post/mac-hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</link>
