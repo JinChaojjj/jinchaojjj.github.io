@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Compiles on King的博客</title>
+    <link>https://jinchaojjj.github.io/compile/</link>
+    <description>Recent content in Compiles on King的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://jinchaojjj.github.io/compile/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://jinchaojjj.github.io/compile/%E7%AE%97%E6%B3%952-%E5%87%A0%E7%A7%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%952/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/compile/%E7%AE%97%E6%B3%952-%E5%87%A0%E7%A7%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%952/</guid>
+      <description>编译原理1 编译过程 词法分析 -&amp;gt; 语法分析 -&amp;gt; 中间代码产生 -&amp;gt; 优化 -&amp;gt; 目标代码产生
+1. 词法分析 任务:输入源程序,对构成源程序的字符串金祥扫描和分解,识别出一个个单词符号
+依循的原则:构词规则
+描述工具:有限自动机
+2. 语法分析 任务:在词法分析的基础上,根据语言的语法规则把单词符号串分解成各种语法单位(语法范畴)
+依循的规则:语法规则
+描述工具:上下文无关文法
+3. 中间代码产生 任务:对各类不同语法范畴按语言的语义进行初步翻译
+依赖的原则:语义规则
+中间代码:三元式、四元式、树、&amp;hellip;
+4. 优化 任务:对前阶段产生的中间代码进行加工变换,以期在最后阶段产生更高效的目标代码
+依赖的原则:程序的等价变换原则
+5. 目标代码的产生 任务:把中间代码变换层成特定机器上的目标代码
+依赖于硬件系统结构和机器指令的含义
+目标代码三种形式:
+ 绝对指令代码:可直接运行 可重新定位指令代码:需要链接装配 汇编指令代码:需要进行汇编  </description>
+    </item>
+    
+  </channel>
+</rss>
