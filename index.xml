@@ -6,7 +6,22 @@
     <description>Recent content on King的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>简单工厂模式</title>
+      <link>https://jinchaojjj.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
+      <description>简单工厂模式 概念 简单设计模式指的是定义一个工厂类，可以通过参数的不同返回不同类的实例对象，一般这些类都有一个共同的父类。
+简单工厂模式结构UML图 结构讲解 首先是需要创建一个公共的父类或者是接口，例如在设计一个计算器时定义一个运算类，设计动物园可以定义一个动物类，但是我推荐使用父类，而不是接口，可以使用抽象类来作为父类，若其中还需要对一些已经存在的接口进行实现的时候，可以通过抽象类来实现接口的方式进行实现。
+并且子类需要重写父类的公共方法，每一个字类都应该有自己不同的方法实现。
+最后是定义一个工厂类，工厂类的create方法通常是一个静态方法，并且接受一个或几个参数，通过参数的不同，创建子类对象，并且将这个字类对象的父类引用作为结果返回。
+调用静态方法获得父类对象的地方只需要使用公共方法就可以实现自己想要的功能，并不关心这个方法内部具体是如何工作的，调用者只关心我通过一个正确的参数得到一个类对象，并且这个类对象实现的功能正是调用者所需要的即可。
+在这里面涉及到了继承、多态、封装，对面向对象编程并不熟悉的小伙伴可以去补补课哦！
+简单工厂的优缺点 优点  工厂类包含必要的逻辑判断，可以决定在什么时候创建哪一个产品的实例。客户端可以免除直接创建产品对象的职责 客户端无需知道所创建具体产品的类名，只需知道参数即可 也可以引入配置文件，在不修改客户端代码的情况下更换和添加新的具体产品类。（这也是我在开始的披萨店里遇到没有的披萨的解决情况）  缺点  工厂类集中了所有产品的创建逻辑，职责过重，一旦异常，整个系统将受影响 使用简单工厂模式会增加系统中类的个数(引入新的工厂类)，增加系统的复杂度和理解难度 系统扩展困难，一旦增加新产品不得不修改工厂逻辑，在产品类型较多时，可能造成逻辑过于复杂 简单工厂模式使用了static工厂方法，造成工厂角色无法形成基于继承的等级结构。  使用场景  工厂类负责创建对的对象比较少，因为不会造成工厂方法中的业务逻辑过于复杂 客户端只知道传入工厂类的参数，对如何创建对象不关心  </description>
+    </item>
+    
     <item>
       <title>算法2-几种简单的排序算法2</title>
       <link>https://jinchaojjj.github.io/post/%E7%AE%97%E6%B3%952-%E5%87%A0%E7%A7%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%952/</link>
