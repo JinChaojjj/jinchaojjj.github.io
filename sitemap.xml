@@ -2,11 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://jinchaojjj.github.io/tags/jvm/</loc>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jinchaojjj.github.io/</loc>
-    <lastmod>2022-03-29T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jinchaojjj.github.io/tags/openjdk/</loc>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jinchaojjj.github.io/openjdk/</loc>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jinchaojjj.github.io/openjdk/openjdk%E7%BC%96%E8%AF%91/</loc>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jinchaojjj.github.io/tags/</loc>
-    <lastmod>2022-03-29T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jinchaojjj.github.io/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2022-03-29T00:00:00+00:00</lastmod>

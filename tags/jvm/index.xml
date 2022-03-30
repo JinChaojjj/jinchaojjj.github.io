@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jvm on King的博客</title>
+    <link>https://jinchaojjj.github.io/tags/jvm/</link>
+    <description>Recent content in jvm on King的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/tags/jvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenJDK编译</title>
+      <link>https://jinchaojjj.github.io/openjdk/openjdk%E7%BC%96%E8%AF%91/</link>
+      <pubDate>Wed, 30 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/openjdk/openjdk%E7%BC%96%E8%AF%91/</guid>
+      <description>OpenJDK编译 一、环境 编译OpenJDK受环境的影响非常大，系统版本、gcc、java版本、boot jdk版本等都会影响到对于OpenJDK的编译。
+并且很对环境并不是越高越好，而是匹配才是好。</description>
+    </item>
+    
+  </channel>
+</rss>
