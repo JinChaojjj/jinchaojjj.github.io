@@ -6,7 +6,20 @@
     <description>Recent content in 算法 on King的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法3-几种简单的排序算法3</title>
+      <link>https://jinchaojjj.github.io/post/%E7%AE%97%E6%B3%953-%E5%87%A0%E7%A7%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%953/</link>
+      <pubDate>Thu, 31 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/post/%E7%AE%97%E6%B3%953-%E5%87%A0%E7%A7%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%953/</guid>
+      <description>算法3-排序算法 i 堆排序 堆排序是比较排序中实现起来较为复杂的一种算法了，其主要步骤分为两步：
+ 将数组化为大/小顶堆 进行堆排序  大顶堆 大顶堆堆含义可以简单概括为数组index下标的数比index * 2 + 1和index * 2 + 2的两个数都要大，小顶堆指的就是相较于这两个数都要小。
+那么如何化为大顶堆呢，其实很简单，从第一个非叶子节点开始将两个子节点中较大的换上去，若是产生交换，需要对产生交换的节点重新进行一次向下层的比较，依次向上就可以
+堆排序 将第一个数和最后一个数进行交换位置，然后对第一个数进行一次堆排序，然后继续交换即可。
+代码实现： public class HeapSort{  public static void main(String[] args){  System.out.println(&amp;#34;1&amp;#34;);  int[] nums = {  4,3,5,7,8,5,3,2,5,7,87,6,54,23,45,7,8,76,5,3,2,4,56,7,876  };  Heap(nums);  for(int i = 0; i&amp;lt; nums.length; i++){  System.out.println(nums[i]);  }  }  public static void Heap(int[] nums){  for (int i = nums.length-1 ; i&amp;gt;=0;i--){  change(nums,i,nums.</description>
+    </item>
+    
     <item>
       <title>算法2-几种简单的排序算法2</title>
       <link>https://jinchaojjj.github.io/post/%E7%AE%97%E6%B3%952-%E5%87%A0%E7%A7%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%952/</link>

@@ -2,10 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jinchaojjj.github.io/tags/jvm/</loc>
-    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
+    <loc>https://jinchaojjj.github.io/tags/java/</loc>
+    <lastmod>2022-03-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jinchaojjj.github.io/</loc>
+    <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jinchaojjj.github.io/post/</loc>
+    <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jinchaojjj.github.io/tags/</loc>
+    <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jinchaojjj.github.io/tags/%E6%8E%92%E5%BA%8F/</loc>
+    <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jinchaojjj.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jinchaojjj.github.io/post/%E7%AE%97%E6%B3%953-%E5%87%A0%E7%A7%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%953/</loc>
+    <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jinchaojjj.github.io/tags/jvm/</loc>
     <lastmod>2022-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jinchaojjj.github.io/tags/openjdk/</loc>
@@ -15,9 +33,6 @@
     <lastmod>2022-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jinchaojjj.github.io/openjdk/openjdk%E7%BC%96%E8%AF%91/</loc>
-    <lastmod>2022-03-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jinchaojjj.github.io/tags/</loc>
     <lastmod>2022-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jinchaojjj.github.io/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</loc>
@@ -43,18 +58,6 @@
   </url><url>
     <loc>https://jinchaojjj.github.io/compile/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%861/</loc>
     <lastmod>2022-03-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jinchaojjj.github.io/tags/java/</loc>
-    <lastmod>2022-03-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jinchaojjj.github.io/post/</loc>
-    <lastmod>2022-03-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jinchaojjj.github.io/tags/%E6%8E%92%E5%BA%8F/</loc>
-    <lastmod>2022-03-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jinchaojjj.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2022-03-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jinchaojjj.github.io/post/%E7%AE%97%E6%B3%952-%E5%87%A0%E7%A7%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%952/</loc>
     <lastmod>2022-03-25T00:00:00+00:00</lastmod>

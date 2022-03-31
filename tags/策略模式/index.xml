@@ -13,7 +13,9 @@
       <pubDate>Tue, 29 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jinchaojjj.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
-      <description>策略模式 定义：</description>
+      <description>策略模式 策略模式是一种定义一系列算法的方法，从概念上来看，所有这些算法完成的都是相同的工作，只是实现方式不同，可以以相同的方式调用所有的方法，减少算法类与使用算法类之间的耦合
+策略模式的UML图 理解 我对于策略模式的理解是，策略模式更像是使用Context类来持有一个Father类的对象，通过Context来对其中的方法进行调用，同时也在这进行维护，可以随时更改对Father对象的具体实现类对象。使得调用类对实际类的耦合降低。
+同时在策略模式中可以结合工厂模式，这样用户在实际调用中就完全不需要接触具体的实现类，只是和Context类进行接触。</description>
     </item>
     
   </channel>
