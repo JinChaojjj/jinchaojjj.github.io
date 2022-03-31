@@ -6,7 +6,21 @@
     <description>Recent content in 设计模式s on King的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>单一指责原则</title>
+      <link>https://jinchaojjj.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%B8%80%E6%8C%87%E8%B4%A3%E5%8E%9F%E5%88%99/</link>
+      <pubDate>Thu, 31 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%B8%80%E6%8C%87%E8%B4%A3%E5%8E%9F%E5%88%99/</guid>
+      <description>单一指责原则 单一职责原则定义是：不要存在多于一个导致类变更的原因。通俗地说，即一个类只负责一项职责。
+单一职责原则针对的问题 有一个类T负责两个不同的职责：职责P1和职责P2。当因为职责P1的需求发生改变而需要修改类T的时候，有可能会导致原本运行正常的职责P2功能发生故障。
+单一职责原则的解决方案 遵循单一职责原则，分别建立两个类T1、T2，使T1完成职责P1功能，T2完成职责P2功能。这样，当修改类T1的时候，不会使职责P2发生故障风险。同理，当修改T2的时候，也不会使职责P1发生故障风险。
+单一职责原则的认识 说到单一职责原则，很多人都会不屑一顾，因为它太简单了。稍有经验的程序员即使从来没有读过设计模式，从来没有听说过单一职责原则，在设计软件的时候也会自觉遵守这个重要原则，因为这是一个常识。在软件编程中，谁也不希望因为修改了一个功能导致其他的功能发生故障。而避免出现这一问题的方法便是遵循单一职责原则。虽然单一职责原则如此简单，并且被认为是常识，但是即使是经验丰富的程序员写出的程序也会有违背这一设计原则的代码存在。这是职责扩散导致的。所谓的职责扩散，指的就是因为某种原因，职责P1被分化为粒度更细的职责P1和P2。
+比如说，类T只负责一个职责P，这样设计是符合单一职责原则的。后来由于某种原因，或许是需求变更了，又或许是程序的设计者境界提高了，需要将职责P细分为粒度更细的职责P1和P2。这时候，如果要使程序遵循单一职责原则，就需要将类T也分解为两个类T1和T2，分别去负责P1和P2两个职责。但是在程序已经写好的情况下这样做，十分浪费时间和精力。所以，简单地修改类T，用它来负责两个职责是一个比较不错的选择，虽然这样做会有悖于单一职责原则。
+适当地违背单一职责原则有时候反而能提高开发效率，因此设计原则还是要按照实际需求来选择使用的。</description>
+    </item>
+    
     <item>
       <title>策略模式</title>
       <link>https://jinchaojjj.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
