@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>差分 on King的博客</title>
+    <link>https://jinchaojjj.github.io/tags/%E5%B7%AE%E5%88%86/</link>
+    <description>Recent content in 差分 on King的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 02 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/tags/%E5%B7%AE%E5%88%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法5-前缀和与差分</title>
+      <link>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%955-%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/</link>
+      <pubDate>Sat, 02 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%955-%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/</guid>
+      <description>前缀和 与 差分 讲的超好
+我的理解 上面这篇博客讲的很好、很详细，我就不做重复劳动啦！
+前缀和的应用场景 前缀和对于同一个数列中需要反复求解区间和的场景的帮助是十分大的，不使用区间和时时间复杂度为o(n*m),使用区间和时间复杂度为o(n+m),时间复杂度是肉眼可见的降低了一个数量级.
+差分的应用场景 差分其实就是前缀和的一个逆推,对于一个数列需要反复进行区间上的加减时效果非常好</description>
+    </item>
+    
+  </channel>
+</rss>
