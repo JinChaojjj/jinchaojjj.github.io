@@ -6,7 +6,19 @@
     <description>Recent content on King的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法6-基础算法</title>
+      <link>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%956-%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sun, 03 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%956-%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/</guid>
+      <description>算法6-大杂烩 双指针算法 一般是通过两个指针实现复杂度为o(n)算法，可以是同一位置开始的快慢指针、向中间靠拢的两侧指针等
+位运算 一般是解决成双成对外加孤零零一个的数的问题，或者是直接要求位运算问题的
+离散化 往往是一个极大等区间上需要进行位数不多几个数的算法，这时候就需要将大范围的数映射到小范围上，大范围直接创建数组往往是超内存的
+区间合并 纯纯的合并区间呀，哈哈哈，后面刷题的时候还会总结哒，直接对题目进行分析，使用的算法等。</description>
+    </item>
+    
     <item>
       <title>算法5-前缀和与差分</title>
       <link>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%955-%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/</link>
@@ -46,7 +58,7 @@
 若存在多个类调用同一个类功能时，若直接更改代码就会造成其他类出现bug的风险，而增加代码这种风险是较小的。例如一个类增加了方法，其他调用的类可以不用，但是你改了方法，其他调用的类就一定会调用了。
 重要
 善用面向对象的封装、继承、多态，这很重要，非常重要。
-五、类图案例 </description>
+五、类图案例 六、依赖倒置原则 讲得好(懒得写了,啊哈哈哈哈哈哈,原谅我)</description>
     </item>
     
     <item>

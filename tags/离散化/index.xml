@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>离散化 on King的博客</title>
+    <link>https://jinchaojjj.github.io/tags/%E7%A6%BB%E6%95%A3%E5%8C%96/</link>
+    <description>Recent content in 离散化 on King的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/tags/%E7%A6%BB%E6%95%A3%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法6-基础算法</title>
+      <link>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%956-%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sun, 03 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%956-%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/</guid>
+      <description>算法6-大杂烩 双指针算法 一般是通过两个指针实现复杂度为o(n)算法，可以是同一位置开始的快慢指针、向中间靠拢的两侧指针等
+位运算 一般是解决成双成对外加孤零零一个的数的问题，或者是直接要求位运算问题的
+离散化 往往是一个极大等区间上需要进行位数不多几个数的算法，这时候就需要将大范围的数映射到小范围上，大范围直接创建数组往往是超内存的
+区间合并 纯纯的合并区间呀，哈哈哈，后面刷题的时候还会总结哒，直接对题目进行分析，使用的算法等。</description>
+    </item>
+    
+  </channel>
+</rss>
