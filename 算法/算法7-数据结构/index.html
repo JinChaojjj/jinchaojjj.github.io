@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>算法7-数据结构 // King的博客</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.95.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="King" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://jinchaojjj.github.io/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="算法7-数据结构"/>
+<meta name="twitter:description" content="算法7-数据结构 a、链表 链表主要分为单链表、双链表、循环链表
+其中单链表指的是单向的链表，一般是有一个头结点、并且方向是单一的，从头指向尾。
+双向链表指的是，每一个节点都有指向前序节点和后续节点的指针，从任何位置都可以向前向后走
+循环链表指的是收尾相互连接的链表
+单链表结构 class Linked{  private Integer val;  private Linked next;   public Linked(Integer value){  this.val = value;  this.next = null;  }   public boolean haveNext(){  if (next == null) return false;  else return true;  }   public Linked getNext(){  return this.next;  }   public void setValue(Integer value){  this.val = value;  }   public int getValue(){  return this."/>
+
+    <meta property="og:title" content="算法7-数据结构" />
+<meta property="og:description" content="算法7-数据结构 a、链表 链表主要分为单链表、双链表、循环链表
+其中单链表指的是单向的链表，一般是有一个头结点、并且方向是单一的，从头指向尾。
+双向链表指的是，每一个节点都有指向前序节点和后续节点的指针，从任何位置都可以向前向后走
+循环链表指的是收尾相互连接的链表
+单链表结构 class Linked{  private Integer val;  private Linked next;   public Linked(Integer value){  this.val = value;  this.next = null;  }   public boolean haveNext(){  if (next == null) return false;  else return true;  }   public Linked getNext(){  return this.next;  }   public void setValue(Integer value){  this.val = value;  }   public int getValue(){  return this." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%957-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" /><meta property="article:section" content="算法" />
+<meta property="article:published_time" content="2022-04-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-04-10T00:00:00+00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://jinchaojjj.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="King" /></a>
+      <h1>King的博客</h1>
+      <p>和我一起感受这如诗般的美好</p>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">算法7-数据结构</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Apr 10, 2022
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          4 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://jinchaojjj.github.io/tags/%E7%AE%97%E6%B3%95/">算法</a>
+              <a class="tag" href="https://jinchaojjj.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+              <a class="tag" href="https://jinchaojjj.github.io/tags/%E9%93%BE%E8%A1%A8/">链表</a>
+              <a class="tag" href="https://jinchaojjj.github.io/tags/%E5%9B%BE/">图</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="算法7-数据结构">算法7-数据结构</h1>
+<h2 id="a链表">a、链表</h2>
+<p>链表主要分为单链表、双链表、循环链表</p>
+<p>其中单链表指的是单向的链表，一般是有一个头结点、并且方向是单一的，从头指向尾。</p>
+<p>双向链表指的是，每一个节点都有指向前序节点和后续节点的指针，从任何位置都可以向前向后走</p>
+<p>循环链表指的是收尾相互连接的链表</p>
+<h3 id="单链表结构">单链表结构</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Linked</span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Integer val<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Linked next<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Linked</span><span style="color:#f92672">(</span>Integer value<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> value<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">haveNext</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>next <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Linked <span style="color:#a6e22e">getNext</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setValue</span><span style="color:#f92672">(</span>Integer value<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> value<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getValue</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">val</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setNext</span><span style="color:#f92672">(</span>Linked next<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> next<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="链表的主要操作">链表的主要操作</h3>
+<p>带空头节点的</p>
+<ul>
+<li>
+<p>遍历</p>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>p<span style="color:#f92672">=</span>head<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>p<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>p<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>查找</p>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// 在链表中查找值为n的数,若存在返回true，不存在则返回false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>p <span style="color:#f92672">=</span> head<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>p<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>p<span style="color:#f92672">.</span><span style="color:#a6e22e">getVal</span> <span style="color:#f92672">==</span> n<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>清空</p>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>head<span style="color:#f92672">.</span><span style="color:#a6e22e">setNext</span><span style="color:#f92672">(</span><span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+</span></span></code></pre></div></li>
+<li>
+<p>销毁</p>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>head <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>求长度</p>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> num <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>p <span style="color:#f92672">=</span> head<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>p <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>    num<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>排序</p>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Linked p <span style="color:#f92672">=</span> head<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>p <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>	Linked q <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>q <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>q<span style="color:#f92672">.</span><span style="color:#a6e22e">getVal</span><span style="color:#f92672">()</span> <span style="color:#f92672">&lt;</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">getVal</span><span style="color:#f92672">()){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> t <span style="color:#f92672">=</span> q<span style="color:#f92672">.</span><span style="color:#a6e22e">getVal</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            q<span style="color:#f92672">.</span><span style="color:#a6e22e">getVal</span><span style="color:#f92672">()</span> <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">getVal</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            p<span style="color:#f92672">.</span><span style="color:#a6e22e">getVal</span><span style="color:#f92672">()</span> <span style="color:#f92672">=</span> t<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>删除节点</p>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">//删除所有值为n的节点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Linked p <span style="color:#f92672">=</span> head<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>p <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>	Linked q <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>q <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>q<span style="color:#f92672">.</span><span style="color:#a6e22e">getVal</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> n<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>            p<span style="color:#f92672">.</span><span style="color:#a6e22e">setNext</span><span style="color:#f92672">(</span>q<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>插入节点</p>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// 在位置x，插入n，若r的值大于长度，则在最后的位置上插入
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Linked p <span style="color:#f92672">=</span> head<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> x<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>p<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        Linked q <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Linked<span style="color:#f92672">(</span>n<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        p<span style="color:#f92672">.</span><span style="color:#a6e22e">setNext</span><span style="color:#f92672">(</span>q<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> p <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="b邻接表">b、邻接表</h2>
+<p>邻接表的结构类似于创建一个节点的数组，数组中记录了场景中所有的节点，并且每个节点可以记录该节点连接的所有的线。</p>
+<p>其实还可以理解为多个链表的合集，将所有的头结点都存放在一个数组中。</p>
+<h3 id="邻接表结构">邻接表结构</h3>
+<p>单一的节点还是使用在链表中提到的Linked</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Linked<span style="color:#f92672">[]</span> linkeds <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Linked<span style="color:#f92672">(</span>n<span style="color:#f92672">);</span><span style="color:#75715e">// 若该邻接表记录的是图，则n表示这个图的节点数
+</span></span></span></code></pre></div><h3 id="添加节点">添加节点</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> Linked <span style="color:#a6e22e">addNode</span><span style="color:#f92672">(</span>x<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>    Linked<span style="color:#f92672">[]</span> newLin <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Linked<span style="color:#f92672">(</span>n <span style="color:#f92672">+</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> n<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>        newLin<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> linkeds<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    linkeds<span style="color:#f92672">[</span>n<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Linked<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    linkeds<span style="color:#f92672">[</span>n<span style="color:#f92672">].</span><span style="color:#a6e22e">setVal</span><span style="color:#f92672">(</span>x<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    linkeds <span style="color:#f92672">=</span> newLin<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> linkeds<span style="color:#f92672">[</span>n<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="插入边">插入边</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addL</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> x<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> y<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>    Linked p<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> linkeds<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>linkeds<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">getVal</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> x<span style="color:#f92672">)</span> p <span style="color:#f92672">=</span> linkeds<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>p <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> p <span style="color:#f92672">=</span> addNode<span style="color:#f92672">(</span>x<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    Linked q<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    q <span style="color:#f92672">=</span> p<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>q <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>q<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>  q<span style="color:#f92672">.</span><span style="color:#a6e22e">setNext</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Linked<span style="color:#f92672">(</span>y<span style="color:#f92672">););</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>q<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getVal</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> y<span style="color:#f92672">)</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span> <span style="color:#75715e">// 本身存在这条边
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">else</span> q <span style="color:#f92672">=</span> q<span style="color:#f92672">.</span><span style="color:#a6e22e">getNext</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="c树的存储">c、树的存储</h2>
+<p>树一般是采用链表的形式进行存储，我以二叉树为例</p>
+<p>ps. 度为2的树不是二叉树，因为二叉树是有左右区分的，而一般意义上的数是没有左右之分的</p>
+<h3 id="节点结构">节点结构</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Linked</span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Integer val<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Linked left<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Linked right<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Linked</span><span style="color:#f92672">(</span>Integer value<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> value<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">left</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">right</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setValue</span><span style="color:#f92672">(</span>Integer value<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> value<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getValue</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">val</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setLeft</span><span style="color:#f92672">(</span>Linked node<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">left</span> <span style="color:#f92672">=</span> node<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setRight</span><span style="color:#f92672">(</span>Linked node<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">right</span> <span style="color:#f92672">=</span> node<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Linked <span style="color:#a6e22e">getLeft</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">left</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Linked <span style="color:#a6e22e">getRight</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">right</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="创建">创建</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// 采用1.3..的方式来创建二叉树，这个序列表示的是在数组中下表为2*n+1 和 2*n+2 的是该节点的左孩子和右孩子
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 这个和堆排序中的性质是一样的
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 用递归的方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">createTree</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> iList<span style="color:#f92672">,</span>Linked node<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> n<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>2 <span style="color:#f92672">*</span> n <span style="color:#f92672">+</span> 1 <span style="color:#f92672">&lt;</span> iList<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        Linked left <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Linked<span style="color:#f92672">(</span>iList<span style="color:#f92672">[</span>2 <span style="color:#f92672">*</span> n <span style="color:#f92672">+</span> 1<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        node<span style="color:#f92672">.</span><span style="color:#a6e22e">setLeft</span><span style="color:#f92672">(</span>left<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        createTree<span style="color:#f92672">(</span>iList<span style="color:#f92672">,</span> left<span style="color:#f92672">,</span> 2 <span style="color:#f92672">*</span> n <span style="color:#f92672">+</span>1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>2 <span style="color:#f92672">*</span> n <span style="color:#f92672">+</span> 2 <span style="color:#f92672">&lt;</span> iList<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        Linked right <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Linked<span style="color:#f92672">(</span>iList<span style="color:#f92672">[</span>2 <span style="color:#f92672">*</span> n <span style="color:#f92672">+</span> 2<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        node<span style="color:#f92672">.</span><span style="color:#a6e22e">setRight</span><span style="color:#f92672">(</span>right<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        createTree<span style="color:#f92672">(</span>iList<span style="color:#f92672">,</span> right<span style="color:#f92672">,</span> 2 <span style="color:#f92672">*</span> n <span style="color:#f92672">+</span>2<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="先序遍历">先序遍历</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// 同样使用递归遍历（递归代码是可以用非递归实现的，但是代码量会增大）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Pre_Order</span> <span style="color:#f92672">(</span>Linked node<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>node<span style="color:#f92672">.</span><span style="color:#a6e22e">getVal</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>node<span style="color:#f92672">.</span><span style="color:#a6e22e">getLeft</span><span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> Pre_Order<span style="color:#f92672">(</span>node<span style="color:#f92672">.</span><span style="color:#a6e22e">getLeft</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>node<span style="color:#f92672">.</span><span style="color:#a6e22e">getRight</span><span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> Pre_Order<span style="color:#f92672">(</span>node<span style="color:#f92672">.</span><span style="color:#a6e22e">getRight</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="后序遍历">后序遍历</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Pre_Order</span> <span style="color:#f92672">(</span>Linked node<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>node<span style="color:#f92672">.</span><span style="color:#a6e22e">getLeft</span><span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> Pre_Order<span style="color:#f92672">(</span>node<span style="color:#f92672">.</span><span style="color:#a6e22e">getLeft</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>node<span style="color:#f92672">.</span><span style="color:#a6e22e">getVal</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>node<span style="color:#f92672">.</span><span style="color:#a6e22e">getRight</span><span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> Pre_Order<span style="color:#f92672">(</span>node<span style="color:#f92672">.</span><span style="color:#a6e22e">getRight</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="中序遍历">中序遍历</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Pre_Order</span> <span style="color:#f92672">(</span>Linked node<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>node<span style="color:#f92672">.</span><span style="color:#a6e22e">getLeft</span><span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> Pre_Order<span style="color:#f92672">(</span>node<span style="color:#f92672">.</span><span style="color:#a6e22e">getLeft</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>node<span style="color:#f92672">.</span><span style="color:#a6e22e">getRight</span><span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> Pre_Order<span style="color:#f92672">(</span>node<span style="color:#f92672">.</span><span style="color:#a6e22e">getRight</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>node<span style="color:#f92672">.</span><span style="color:#a6e22e">getVal</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="d图的存储">d、图的存储</h2>
+<p>使用邻接表的方式进行存储，其实用到的方法和我在邻接表中提到的类似，但其实还可以使用链表进行存储，就是讲链表结构中的node改成数组，用于记录两条边之间的信息，但是，链表有一个问题，谁是头，图有几个联通部分，所以还是推荐使用邻接表来记录</p>
+<h2 id="e栈与队列">e、栈与队列</h2>
+<p>单调队列、单调栈</p>
+<p>栈：先进后处，队列：先进先出</p>
+<p>单调：限制一端的进出，不可在栈、队列的中间进行插入和提取操作</p>
+<h2 id="fkmp">f、kmp</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SubstringSearch</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//构建失配数组
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">computeTemporaryArray</span><span style="color:#f92672">(</span><span style="color:#66d9ef">char</span> pattern<span style="color:#f92672">[]){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> <span style="color:#f92672">[]</span> lps <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span>0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>1<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>pattern<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> pattern<span style="color:#f92672">[</span>j<span style="color:#f92672">]){</span>
+</span></span><span style="display:flex;"><span>                lps<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> j <span style="color:#f92672">+</span> 1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                j<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>                i<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span><span style="color:#66d9ef">else</span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>j <span style="color:#f92672">!=</span> 0<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>                    j<span style="color:#f92672">=</span> lps<span style="color:#f92672">[</span>j<span style="color:#f92672">-</span>1<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span><span style="color:#66d9ef">else</span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                    lps<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                    i<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> lps<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//KMP匹配
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">KMP</span><span style="color:#f92672">(</span><span style="color:#66d9ef">char</span> <span style="color:#f92672">[]</span>text<span style="color:#f92672">,</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">[]</span>pattern<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> lps<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> computeTemporaryArray<span style="color:#f92672">(</span>pattern<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>i <span style="color:#f92672">&lt;</span> text<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">&amp;&amp;</span> j <span style="color:#f92672">&lt;</span> pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>text<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> pattern<span style="color:#f92672">[</span>j<span style="color:#f92672">]){</span>
+</span></span><span style="display:flex;"><span>                i<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>                j<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span><span style="color:#66d9ef">else</span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>j<span style="color:#f92672">!=</span>0<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>                    j <span style="color:#f92672">=</span> lps<span style="color:#f92672">[</span>j<span style="color:#f92672">-</span>1<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span><span style="color:#66d9ef">else</span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                    i<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>j <span style="color:#f92672">==</span> pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[]){</span>
+</span></span><span style="display:flex;"><span>        String str <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abcxabcdabcdabcy&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        String subString <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abcdabcy&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        SubstringSearch ss <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SubstringSearch<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">boolean</span> result <span style="color:#f92672">=</span> ss<span style="color:#f92672">.</span><span style="color:#a6e22e">KMP</span><span style="color:#f92672">(</span>str<span style="color:#f92672">.</span><span style="color:#a6e22e">toCharArray</span><span style="color:#f92672">(),</span> subString<span style="color:#f92672">.</span><span style="color:#a6e22e">toCharArray</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>result<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>kmp算法中最重要的就是计算next数组，也就是上面版子里面的<code>computeTemporaryArray</code>方法，通过计算next数组，可以很快确认，字符串中访问到的当前字符位置中，与字符串最大的重合前缀，就可以不用对待找字符串进行回溯查找，实现了o(n)的时间复杂度。</p>
+<h2 id="gtrie">g、Trie</h2>
+<h2 id="h并查集">h、并查集</h2>
+<h2 id="i堆">i、堆</h2>
+<h2 id="jhash表">j、Hash表</h2>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

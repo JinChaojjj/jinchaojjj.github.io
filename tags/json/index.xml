@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JSON on King的博客</title>
+    <link>https://jinchaojjj.github.io/tags/json/</link>
+    <description>Recent content in JSON on King的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/tags/json/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C# Json处理</title>
+      <link>https://jinchaojjj.github.io/%E4%BA%A7%E7%BA%BF/c#-json%E5%A4%84%E7%90%86/</link>
+      <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/%E4%BA%A7%E7%BA%BF/c#-json%E5%A4%84%E7%90%86/</guid>
+      <description>C# Json处理 1.从数据库读取Json数据 首先代码具体的实现原理就不过赘述了（俺也不会，啊哈哈哈哈，打工人的开发记录）
+// 连接redis数据库 conn = RedisHelper.RedisConn; db = conn.GetDatabase(); // 获取hash值中存储的json字符串 RedisValue[] result = db.HashGet(&amp;#34;key1&amp;#34;, new RedisValue[] { &amp;#34;key2&amp;#34;, &amp;#34;key2&amp;#34;, &amp;#34;key2&amp;#34; }); // 其中key1表示的是在数据库中所有hash数据的键值，获取到一个确定的值， // 在我的项目中这个值应该是固定的 // 后面的key2 可以是在可以hash中的key的键值，获取相应的value值，作为一个数组返回 2. 解析json字符串 导入LitJson
+JsonData data = JsonMapper.ToObject(result[0]); 3. 从解析后的数据中获取自己需要的数据 data[&amp;#34;jsonKey&amp;#34;]; 通过关键词就可以从数据库中获取相应的数据。</description>
+    </item>
+    
+  </channel>
+</rss>

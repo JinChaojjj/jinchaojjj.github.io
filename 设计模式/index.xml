@@ -6,7 +6,25 @@
     <description>Recent content in 设计模式s on King的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>常用的设计模式</title>
+      <link>https://jinchaojjj.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <description>设计模式 总体来说设计模式可以分为三大类 创建型模式： 工厂模式、抽象工厂模式、单例模式、建造者模式、原型模式
+结构型模式： 适配器模式、过滤器模式、装饰模式、享元模式、代理模式、外观模式、组合模式、桥接模式
+行为型模式： 责任链模式、命令模式、中介者模式、观察者模式、状态模式、策略模式、模板模式、空对象模式、备忘录模式、迭代器模式、解释器模式、访问者模式
+常用的几种设计模式 1. 单例模式 这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。
+注意：
+ 单例类只能有一个实例。 单例类必须自己创建自己的唯一实例。 单例类必须给所有其他对象提供这一实例。  主要解决的问题：一个全局使用的类频繁的反复创建于销毁
+何时使用：当需要控制对象的数目，并且节省资源的时候
+解决方法：判断对象是否存在，不存在则创建，存在则返回该对象
+关键代码：构造函数私有化
+单例模式的几种实现方式 a. 懒汉式，线程不安全 // 是否 Lazy 初始化：是 // 是否多线程安全：否 // 实现难度：易 // 描述：这种方式是最基本的实现方式，这种实现最大的问题就是不支持多线程。因为没有加锁 synchronized，所以严格意义上它并不算单例模式。 // 这种方式 lazy loading 很明显，不要求线程安全，在多线程不能正常工作。 public class Singleton {  private static Singleton instance;  private Singleton (){}   public static Singleton getInstance() {  if (instance == null) {  instance = new Singleton();  }  return instance;  } } b.</description>
+    </item>
+    
     <item>
       <title>设计模式1</title>
       <link>https://jinchaojjj.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F1/</link>
