@@ -57,7 +57,7 @@
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          4 min read
+          5 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -66,8 +66,6 @@
 </svg>
               <a class="tag" href="https://jinchaojjj.github.io/tags/%E7%AE%97%E6%B3%95/">算法</a>
               <a class="tag" href="https://jinchaojjj.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
-              <a class="tag" href="https://jinchaojjj.github.io/tags/%E9%93%BE%E8%A1%A8/">链表</a>
-              <a class="tag" href="https://jinchaojjj.github.io/tags/%E5%9B%BE/">图</a>
         </div>
       </div>
     </header>
@@ -375,6 +373,115 @@
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>kmp算法中最重要的就是计算next数组，也就是上面版子里面的<code>computeTemporaryArray</code>方法，通过计算next数组，可以很快确认，字符串中访问到的当前字符位置中，与字符串最大的重合前缀，就可以不用对待找字符串进行回溯查找，实现了o(n)的时间复杂度。</p>
 <h2 id="gtrie">g、Trie</h2>
+<p>查找树/搜索树的内容就有点多了，其中常用的包含了二叉查找树、平衡二叉树、红黑树、B树、B+树。其他的一些搜索树之后有机会再做介绍。</p>
+<p>首先关于二叉树在树中就有一些介绍，在这里会更加详细的介绍一些二叉树的应用，其中就包含了二叉查找树和平衡二叉树</p>
+<h3 id="1-二叉树">1 二叉树</h3>
+<h4 id="二叉查找树">二叉查找树</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// 节点类
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> val<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">private</span> Node leftChild<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">private</span> Node rightChild<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  	
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Node</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> val<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> val<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">leftChild</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">rightChild</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setVal</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> val<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> val<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getVal</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">val</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  	
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setLeftChild</span><span style="color:#f92672">(</span>Node leftChild<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">leftChild</span> <span style="color:#f92672">=</span> leftChild<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">public</span> Node <span style="color:#a6e22e">getLeftChild</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">leftChild</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    	
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setRightChile</span><span style="color:#f92672">(</span>Node rightChild<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">rightChild</span> <span style="color:#f92672">=</span> rightChild<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">public</span> Node <span style="color:#a6e22e">getRightChile</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">rightChild</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 常见操作
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Trie</span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#75715e">// 顶节点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> Node head<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#75715e">// 使用形如 1.32..4.. 的数组进行创建(其中每一个数字都用字符串在实现中代替)（不做检查，默认正确^_^）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">public</span> Node <span style="color:#a6e22e">Create</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> listN<span style="color:#f92672">,</span> Integer n<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>listN<span style="color:#f92672">[</span>n<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>          	n<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>          	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>          	Node x <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Node<span style="color:#f92672">(</span>Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">parseInt</span><span style="color:#f92672">(</span>listN<span style="color:#f92672">[</span>n<span style="color:#f92672">]));</span>
+</span></span><span style="display:flex;"><span>          	n<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>          	x<span style="color:#f92672">.</span><span style="color:#a6e22e">setLeftNode</span><span style="color:#f92672">(</span>Create<span style="color:#f92672">(</span>listN<span style="color:#f92672">,</span>n<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>          	x<span style="color:#f92672">.</span><span style="color:#a6e22e">setRightNode</span><span style="color:#f92672">(</span>Create<span style="color:#f92672">(</span>listN<span style="color:#f92672">,</span>n<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Trie</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">head</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Trie</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> listN<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">head</span> <span style="color:#f92672">=</span> Create<span style="color:#f92672">(</span>listN<span style="color:#f92672">,</span> n<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addNode</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> num<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>      	Node p <span style="color:#f92672">=</span> head<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>p <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>          	Node x <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Node<span style="color:#f92672">(</span>num<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>          	p <span style="color:#f92672">=</span> x<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>          	<span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>          	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>p<span style="color:#f92672">.</span><span style="color:#a6e22e">getVal</span><span style="color:#f92672">()</span> <span style="color:#f92672">=</span> num<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>          	<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>p<span style="color:#f92672">.</span><span style="color:#a6e22e">getVal</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;</span> num<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>              	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>p<span style="color:#f92672">.</span><span style="color:#a6e22e">getLeftNode</span><span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>                   	p <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">getLeftNode</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                  	Node x <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Node<span style="color:#f92672">(</span>num<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>          					p<span style="color:#f92672">.</span><span style="color:#a6e22e">setLeftNode</span><span style="color:#f92672">(</span>x<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>          					<span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>              	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>p<span style="color:#f92672">.</span><span style="color:#a6e22e">getRightNode</span><span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>                   	p <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">getRightNode</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                  	Node x <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Node<span style="color:#f92672">(</span>num<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>          					p<span style="color:#f92672">.</span><span style="color:#a6e22e">setRightNode</span><span style="color:#f92672">(</span>x<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>          					<span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">public</span> Node <span style="color:#a6e22e">findNode</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> num<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">boolean</span> flag <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>      	Node p <span style="color:#f92672">=</span> head<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>p <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>          	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>p<span style="color:#f92672">.</span><span style="color:#a6e22e">getVal</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> num<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> p<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>          	<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>p<span style="color:#f92672">.</span><span style="color:#a6e22e">getVal</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;</span> num<span style="color:#f92672">)</span> p <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">getLeftNode</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>          	<span style="color:#66d9ef">else</span> p <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">getRightNode</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">return</span> p<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#75715e">// 遍历就是中序遍历，不写啦
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h4 id="平衡二叉树">平衡二叉树</h4>
+<h4 id="哈夫曼编码">哈夫曼编码</h4>
+<h4 id="后缀表达式转换">后缀表达式转换</h4>
+<h3 id="2-红黑树">2 红黑树</h3>
+<h3 id="3-b树">3 B树</h3>
+<h3 id="4-b树">4 B+树</h3>
 <h2 id="h并查集">h、并查集</h2>
 <h2 id="i堆">i、堆</h2>
 <h2 id="jhash表">j、Hash表</h2>
