@@ -477,14 +477,58 @@
 </span></span><span style="display:flex;"><span>  	<span style="color:#75715e">// 遍历就是中序遍历，不写啦
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><h4 id="平衡二叉树">平衡二叉树</h4>
+<p>主要是构造以及对于平衡二叉树的各种操作问题（懂原理可以背板子）</p>
 <h4 id="哈夫曼编码">哈夫曼编码</h4>
+<p>没啥东西（加权情况下全局最短的情况）</p>
 <h4 id="后缀表达式转换">后缀表达式转换</h4>
+<p>构造二叉树</p>
 <h3 id="2-红黑树">2 红黑树</h3>
+<p>是一棵二叉树，通过设置相关保证二叉树砸搜索时的性能</p>
 <h3 id="3-b树">3 B树</h3>
 <h3 id="4-b树">4 B+树</h3>
 <h2 id="h并查集">h、并查集</h2>
-<h2 id="i堆">i、堆</h2>
+<p>并查集算法一般用于解决最小生成树问题，连通性问题，寻找子树问题，判断一个集合里是否存在子集。部分能用并查集解决的一般都可以用DFS，BFS解决，并查集思想也与这二者类似</p>
+<ol>
+<li>查询元素<em>a</em>和元素<em>b</em>是否属于同一组。</li>
+<li>合并元素<em>a</em>和元素<em>b</em>所在的组。</li>
+</ol>
+<p>模板：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UnionFind</span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> father<span style="color:#f92672">;</span><span style="color:#75715e">//创建祖先数组，并将每个元素的祖先设置为自己
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> count<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getCount</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">count</span><span style="color:#f92672">=</span>count<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> count<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">UnionFind</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> grid<span style="color:#f92672">){</span><span style="color:#75715e">//构造器，将二维数组对应数改为father中元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        father<span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>grid<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">*</span> grid<span style="color:#f92672">[</span>0<span style="color:#f92672">].</span><span style="color:#a6e22e">length</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span>i<span style="color:#f92672">&lt;</span>grid<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">*</span> grid<span style="color:#f92672">[</span>0<span style="color:#f92672">].</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>i<span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>            father<span style="color:#f92672">[</span>i<span style="color:#f92672">]=</span>i<span style="color:#f92672">;</span><span style="color:#75715e">//初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//查寻各自的祖先
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">find</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>father<span style="color:#f92672">[</span>i<span style="color:#f92672">]==</span>i<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> i<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        father<span style="color:#f92672">[</span>i<span style="color:#f92672">]=</span>find<span style="color:#f92672">(</span>father<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> father<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//集（合并操作）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">union</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">,</span><span style="color:#66d9ef">int</span> j<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> ifather<span style="color:#f92672">=</span>find<span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> jfather<span style="color:#f92672">=</span>find<span style="color:#f92672">(</span>j<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>ifather<span style="color:#f92672">!=</span>jfather<span style="color:#f92672">){</span><span style="color:#75715e">//避免重复和并
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            father<span style="color:#f92672">[</span>ifather<span style="color:#f92672">]=</span>jfather<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            count<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="i堆">i、堆</h2>
+<p>在堆排序里有讲究，看那个就可以，主要还有堆中数据的插入和删除，之后再写了</p>
+<p>堆的主要作用就是堆排序以及TopK问题，找最小的k个数或者找最大的k个数，往往数据量较大，利用堆排序建堆，然后利用去处堆顶元素的方式进行</p>
 <h2 id="jhash表">j、Hash表</h2>
+<p>没啥东西，主要是构造hash函数以及hash碰撞的解决方法。</p>
 
     </div>
     <div class="post-footer">
