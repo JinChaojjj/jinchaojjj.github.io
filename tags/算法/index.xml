@@ -6,7 +6,43 @@
     <description>Recent content in 算法 on King的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法10-DP</title>
+      <link>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%9510-dp/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%9510-dp/</guid>
+      <description>算法10-DP 1.背包问题 2.线性DP 3.区间DP 4.计数类DP 5.数位统计DP 6.状态压缩DP 7.树形DP 8.记忆化搜索 </description>
+    </item>
+    
+    <item>
+      <title>算法11-贪心</title>
+      <link>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%9511-%E8%B4%AA%E5%BF%83/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%9511-%E8%B4%AA%E5%BF%83/</guid>
+      <description>算法11-贪心 </description>
+    </item>
+    
+    <item>
+      <title>算法8-搜索与图论</title>
+      <link>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%958-%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%958-%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/</guid>
+      <description>算法8-搜索与图论 1.DFS 2.BFS 3.树的便利 4.图的便利：拓扑排序 5.最短路 6. 最小生成树 </description>
+    </item>
+    
+    <item>
+      <title>算法9-数学知识</title>
+      <link>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%959-%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%959-%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/</guid>
+      <description>算法9-数学知识 1.质数 2.约数 3.欧拉函数 4.快速幂 </description>
+    </item>
+    
     <item>
       <title>算法7-数据结构</title>
       <link>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%957-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>

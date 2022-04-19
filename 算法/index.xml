@@ -6,7 +6,43 @@
     <description>Recent content in 算法s on King的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法10-DP</title>
+      <link>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%9510-dp/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%9510-dp/</guid>
+      <description>算法10-DP 1.背包问题 2.线性DP 3.区间DP 4.计数类DP 5.数位统计DP 6.状态压缩DP 7.树形DP 8.记忆化搜索 </description>
+    </item>
+    
+    <item>
+      <title>算法11-贪心</title>
+      <link>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%9511-%E8%B4%AA%E5%BF%83/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%9511-%E8%B4%AA%E5%BF%83/</guid>
+      <description>算法11-贪心 </description>
+    </item>
+    
+    <item>
+      <title>算法8-搜索与图论</title>
+      <link>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%958-%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%958-%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/</guid>
+      <description>算法8-搜索与图论 1.DFS 2.BFS 3.树的便利 4.图的便利：拓扑排序 5.最短路 6. 最小生成树 </description>
+    </item>
+    
+    <item>
+      <title>算法9-数学知识</title>
+      <link>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%959-%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%959-%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/</guid>
+      <description>算法9-数学知识 1.质数 2.约数 3.欧拉函数 4.快速幂 </description>
+    </item>
+    
     <item>
       <title>算法7-数据结构</title>
       <link>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%957-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
@@ -81,36 +117,6 @@
 希尔排序中一个最难的问题就是如何选择增量序列,增量序列的选择是个数学上的难题.希尔增量并不是最好的增量序列,目前使用较多的增量序列是Hibbard,最坏的时间复杂度是o(n^3/2).
 下面贴出基于希尔增量实现的算法源码,(用户想要更加优秀的性能可以自己更换想要的增量序列)
 public class ShellSort{  public static void main(String[] args){  System.out.println(&amp;#34;hello&amp;#34;);  int[] nums = {  4,6,6,5,3,2,4,6,78,9,7,6,5,4,43,32,2  };  Shell(nums);  for(int i = 0; i &amp;lt; nums.length; i++){  System.out.println(nums[i]);  }  }  public static void Shell(int[] nums){  int length = nums.length/2;  while(length &amp;gt; 0){  // 依据length进行插入排序  for(int i = 1; i &amp;lt; nums.</description>
-    </item>
-    
-    <item>
-      <title>mac hugo博客搭建记录</title>
-      <link>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/mac-hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</link>
-      <pubDate>Thu, 24 Mar 2022 10:46:00 +0800</pubDate>
-      
-      <guid>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/mac-hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</guid>
-      <description>mac hugo博客搭建记录 一、搭建 本次博客搭建使用的是Hugo框架,整体的搭建过程还是十分的方便,但是在搭建过程中还是遇到了一些小问题
-a 环境  系统:mac OS Monterey 12.2.1
-hugo:v0.95.0
- b 实际搭建 step 1
- mac上使用brew install hugo进行安装
- step 2
- 使用hugo new site blogName创建自己的blog,使用命令之后会在当前文件夹下创建一个blogName命名的文件夹,这个就是创建好的blog
- step 3 设置主题
-主题可以在官网上找自己喜欢的主题
-每一个主题的具体使用一般都是通过git进行clone到本地的,点击打开之后也有详细的说明
-主题会存放在themes文件夹中
-step 4
-hugo server -t hugo-agency-theme --buildDrafts在本地启动博客并访问
-c 写博客 hugo new post/bolgName.md创建博客文件,然后就可以在生成的文件中写博客啦
-d 在github上远程部署 step 1 创建仓库
-首先需要在github中创建一个仓库,仓库的名称是userName.github.io必须是这个名字,否则将无法访问,其中userName是你github帐号的名字
-step 2 本地生成
-hugo --theme=m10c --baseUrl=&amp;quot;https://jinchaojjj.github.io/&amp;quot; --buildDrafts
-这样就在本地生成了一个public文件夹,这个就是一句生成的静态页面啦
-step 3 上传远程
-这一步本质上就是将本地的博客(刚刚的public文件夹)上传到刚刚创建的仓库中,会git的小伙伴这一步就会很轻松啦
- 首先进入public文件夹 git init git add .</description>
     </item>
     
     <item>
