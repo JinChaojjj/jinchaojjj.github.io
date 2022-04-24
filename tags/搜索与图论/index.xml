@@ -13,7 +13,11 @@
       <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%958-%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/</guid>
-      <description>算法8-搜索与图论 1.DFS 2.BFS 3.树的便利 4.图的便利：拓扑排序 5.最短路 6. 最小生成树 </description>
+      <description>算法8-搜索与图论 1.DFS 2.BFS 3.树的便利 4.图的便利：拓扑排序 5.最短路 一、BFS
+二、Dijkstra
+三、Floyd
+6. 最小生成树 Prim算法
+Kruskal算法</description>
     </item>
     
   </channel>

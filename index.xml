@@ -31,7 +31,11 @@
       <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%958-%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/</guid>
-      <description>算法8-搜索与图论 1.DFS 2.BFS 3.树的便利 4.图的便利：拓扑排序 5.最短路 6. 最小生成树 </description>
+      <description>算法8-搜索与图论 1.DFS 2.BFS 3.树的便利 4.图的便利：拓扑排序 5.最短路 一、BFS
+二、Dijkstra
+三、Floyd
+6. 最小生成树 Prim算法
+Kruskal算法</description>
     </item>
     
     <item>
@@ -40,7 +44,10 @@
       <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%959-%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/</guid>
-      <description>算法9-数学知识 1.质数 2.约数 3.欧拉函数 4.快速幂 </description>
+      <description>算法9-数学知识 1.质数 1.1 质数的定义  质数定义：若整数n是质数，则在整数1-n中n只能被1和n整除，其余所有的数都无法整除
+ 1.2 判断n是否为质数 方法1:判断1-n，时间复杂度o(n) public boolean isPrimeNumber(int n){ 	boolean flag = false;  for (int i = 2; i &amp;lt; n; i++){ 	if (n % i == 0){  flag = true;  break;  }  }  return flag; }  该方法判断1-n之间所有的数，若存在余数为0的数，则表示n不是质数，若不存在则是质数。
+但是这个方法存在一个问题，就是所有大于sqrt(n)的数，如果是n的因子，那么一定存在一个小于sqrt(n)的数同样也是n的因子，上述方法在判断非质数时不存在这个问题，小的因子在初期就已经跳出循环，但是对于质数的判断还可以优化，将复杂度控制为o(sqrt(n))。
+ 方法2:o(sqrt(n)) public boolean isPrimeNumber(int n){ 	boolean flag = false;  for (int i = 2; i &amp;lt; (int) Math.</description>
     </item>
     
     <item>

@@ -13,10 +13,16 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="算法9-数学知识"/>
-<meta name="twitter:description" content="算法9-数学知识 1.质数 2.约数 3.欧拉函数 4.快速幂 "/>
+<meta name="twitter:description" content="算法9-数学知识 1.质数 1.1 质数的定义  质数定义：若整数n是质数，则在整数1-n中n只能被1和n整除，其余所有的数都无法整除
+ 1.2 判断n是否为质数 方法1:判断1-n，时间复杂度o(n) public boolean isPrimeNumber(int n){ 	boolean flag = false;  for (int i = 2; i &lt; n; i&#43;&#43;){ 	if (n % i == 0){  flag = true;  break;  }  }  return flag; }  该方法判断1-n之间所有的数，若存在余数为0的数，则表示n不是质数，若不存在则是质数。
+但是这个方法存在一个问题，就是所有大于sqrt(n)的数，如果是n的因子，那么一定存在一个小于sqrt(n)的数同样也是n的因子，上述方法在判断非质数时不存在这个问题，小的因子在初期就已经跳出循环，但是对于质数的判断还可以优化，将复杂度控制为o(sqrt(n))。
+ 方法2:o(sqrt(n)) public boolean isPrimeNumber(int n){ 	boolean flag = false;  for (int i = 2; i &lt; (int) Math."/>
 
     <meta property="og:title" content="算法9-数学知识" />
-<meta property="og:description" content="算法9-数学知识 1.质数 2.约数 3.欧拉函数 4.快速幂 " />
+<meta property="og:description" content="算法9-数学知识 1.质数 1.1 质数的定义  质数定义：若整数n是质数，则在整数1-n中n只能被1和n整除，其余所有的数都无法整除
+ 1.2 判断n是否为质数 方法1:判断1-n，时间复杂度o(n) public boolean isPrimeNumber(int n){ 	boolean flag = false;  for (int i = 2; i &lt; n; i&#43;&#43;){ 	if (n % i == 0){  flag = true;  break;  }  }  return flag; }  该方法判断1-n之间所有的数，若存在余数为0的数，则表示n不是质数，若不存在则是质数。
+但是这个方法存在一个问题，就是所有大于sqrt(n)的数，如果是n的因子，那么一定存在一个小于sqrt(n)的数同样也是n的因子，上述方法在判断非质数时不存在这个问题，小的因子在初期就已经跳出循环，但是对于质数的判断还可以优化，将复杂度控制为o(sqrt(n))。
+ 方法2:o(sqrt(n)) public boolean isPrimeNumber(int n){ 	boolean flag = false;  for (int i = 2; i &lt; (int) Math." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jinchaojjj.github.io/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%959-%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/" /><meta property="article:section" content="算法" />
 <meta property="article:published_time" content="2022-04-19T00:00:00+00:00" />
@@ -49,7 +55,7 @@
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          1 min read
+          2 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -64,10 +70,134 @@
     <div class="post-content">
       <h1 id="算法9-数学知识">算法9-数学知识</h1>
 <h2 id="1质数">1.质数</h2>
-<h2 id="2约数">2.约数</h2>
-<h2 id="3欧拉函数">3.欧拉函数</h2>
+<h3 id="11-质数的定义">1.1 质数的定义</h3>
+<blockquote>
+<p>质数定义：若整数n是质数，则在整数1-n中n只能被1和n整除，其余所有的数都无法整除</p>
+</blockquote>
+<h3 id="12-判断n是否为质数">1.2 判断n是否为质数</h3>
+<h4 id="方法1判断1-n时间复杂度on">方法1:判断1-n，时间复杂度o(n)</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isPrimeNumber</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">boolean</span> flag <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 2<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> n<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>n <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> 0<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>          	flag <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>          	<span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">return</span> flag<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><blockquote>
+<p>该方法判断1-n之间所有的数，若存在余数为0的数，则表示n不是质数，若不存在则是质数。</p>
+<p>但是这个方法存在一个问题，就是所有大于sqrt(n)的数，如果是n的因子，那么一定存在一个小于sqrt(n)的数同样也是n的因子，上述方法在判断非质数时不存在这个问题，小的因子在初期就已经跳出循环，但是对于质数的判断还可以优化，将复杂度控制为o(sqrt(n))。</p>
+</blockquote>
+<h4 id="方法2osqrtn">方法2:o(sqrt(n))</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isPrimeNumber</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">boolean</span> flag <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 2<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">sqrt</span><span style="color:#f92672">(</span>n<span style="color:#f92672">);</span> i<span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>n <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> 0<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>          	flag <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>          	<span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">return</span> flag<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="13-打印质数表">1.3 打印质数表</h3>
+<h4 id="方法1使用12方法-onsqrtn">方法1:使用1.2方法 o(nsqrt(n))</h4>
+<blockquote>
+<p>该方法的思路是，需要得到1-n之间所有质数的列表，那就将区间中所有的数都按照1.2方法2进行一次判断</p>
+</blockquote>
+<h4 id="方法2埃氏筛法-onloglogn">方法2:埃氏筛法 o(nloglogn)</h4>
+<blockquote>
+<p>思路：求取2-n中所有质数，埃氏筛法的思想就是从小到大开始便利，设当前便利到x，则将小于n的所有倍数标记为false/-1，然后继续向下便利没有被标记的数。</p>
+<p>因为是从小到大开始便利，便利到当前数则表示比当前数小的所有数都不是当前数的因子，因此可以筛选出来</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">primeNumberInN</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nu <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>n <span style="color:#f92672">+</span> 1<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;=</span> n<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>      	nu<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  	nu<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  	nu<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 2<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;=</span> n<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>nu<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>          	<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> i <span style="color:#f92672">*</span> 2<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>          	<span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>j <span style="color:#f92672">&lt;=</span> n<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>              	nu<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  	List<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> ans <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;();</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 2<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;=</span> n<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>nu<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> ans<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">return</span> ans<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h4 id="方法3欧拉筛法-on">方法3:欧拉筛法 o(n)</h4>
+<blockquote>
+<p>如果i是质数，那么就将它与之前的质数（包括它本身）的乘积筛掉 。</p>
+<p>如果i是合数，那么就将它与从2到它最小的质因子之间的质数的乘积分别筛掉。</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">primeNumberInN</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>  	List<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> ans <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;():</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nu <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>n <span style="color:#f92672">+</span> 1<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;=</span> n<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>      	nu<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 2<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;=</span> n<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>nu<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>          	ans<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>          	foreach<span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> j in ans<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>              	nu<span style="color:#f92672">[</span>i <span style="color:#f92672">*</span> j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span><span style="color:#66d9ef">else</span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>          	foreach<span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> j in ans<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>              	nu<span style="color:#f92672">[</span>i <span style="color:#f92672">*</span> j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>              	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">%</span> j <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">return</span> ans<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="2约数">2.约数</h2>
+<h3 id="21-最大公约数">2.1 最大公约数</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">gcd</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> a<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> b<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>b <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> a<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> gcd<span style="color:#f92672">(</span>b<span style="color:#f92672">,</span> a <span style="color:#f92672">%</span> b<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="22-最小公倍数">2.2 最小公倍数</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">lcm</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> a<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> b<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">return</span> a <span style="color:#f92672">*</span> b <span style="color:#f92672">/</span> gcd<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> b<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="3欧拉函数">3.欧拉函数</h2>
+<p>欧拉函数的求解的是对于整数n，所有小于n且与n互至的数的个数</p>
+<p>公式为<em>ϕ</em>(<em>n</em>)=<em>n</em>(1−1/<em>p</em>1)(1−1/<em>p</em>2)(1−1/<em>p</em>3)&hellip;.(1−1/<em>pn</em>)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">oula</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> n<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 2<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">sqrt</span><span style="color:#f92672">(</span>n<span style="color:#f92672">));</span>i<span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>n <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> 0<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>          	ans <span style="color:#f92672">=</span> ans <span style="color:#f92672">/</span> i <span style="color:#f92672">*</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>          	<span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>n <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> 0<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>              	n <span style="color:#f92672">/=</span> i<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>n <span style="color:#f92672">&gt;</span> 1<span style="color:#f92672">)</span> ans <span style="color:#f92672">=</span> ans <span style="color:#f92672">/</span> n <span style="color:#f92672">*</span> <span style="color:#f92672">(</span>n <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">return</span> ans<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><blockquote>
+<p>也可以使用欧拉筛来计算，就是使用1.3中的方法3计算得到欧拉筛，然后利用公式计算就可以。</p>
+<p>两种方法的复杂度都是o(n)，计算当个数的欧拉值区别不大，但是在计算多个数的欧拉值的时候，使用欧拉筛会快很多</p>
+</blockquote>
 <h2 id="4快速幂">4.快速幂</h2>
-
+<p>递归快速幂</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// a的b次方
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">fastPower</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> a<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> b<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>b <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> 1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>b <span style="color:#f92672">==</span> 1<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> a<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>b <span style="color:#f92672">==</span> 2<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> a <span style="color:#f92672">*</span> a<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">return</span> fastPower<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> b <span style="color:#f92672">/</span> 2<span style="color:#f92672">)</span> <span style="color:#f92672">*</span> fastPower<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> b <span style="color:#f92672">/</span> 2<span style="color:#f92672">)</span> <span style="color:#f92672">*</span> fastPower<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> b <span style="color:#f92672">%</span> 2<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div>
     </div>
     <div class="post-footer">
       
